@@ -1,0 +1,20 @@
+version: "3"
+services:
+  api:
+    build: .
+    command: uvicorn api_server:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY
+      - URL=https://msg-i2orqzwmp-devs1s-projects-aa7811d6.vercel.app/api/messages
+
+  streamlit:
+    build: .
+    command: streamlit run streamlit_app.py
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000/ask
+    depends_on:
+      - api
