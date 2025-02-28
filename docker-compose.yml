@@ -7,6 +7,8 @@ services:
     environment:
       - GROQ_API_KEY=${GROQ_API_KEY}
       - URL=${URL}
+    networks:
+      - app_network
 
   streamlit:
     build: .
@@ -17,3 +19,9 @@ services:
       - API_URL=http://api:8000/ask
     depends_on:
       - api
+    networks:
+      - app_network
+
+networks:
+  app_network: # 사용자 정의 네트워크 생성
+    driver: bridge
