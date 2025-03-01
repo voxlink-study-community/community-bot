@@ -25,4 +25,5 @@ services:
 
 networks:
   app_network: # 사용자 정의 네트워크 생성
+    name: app_network
     driver: bridge
