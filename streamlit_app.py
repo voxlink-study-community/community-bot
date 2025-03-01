@@ -20,8 +20,8 @@ st.markdown("""
 """)
 
 # 환경변수나 Streamlit Secrets를 활용하여 API URL 설정
-#API_URL = os.getenv("API_URL", "http://localhost:8000/ask")
-API_URL = os.getenv("API_URL", "http://api:8000/ask")
+# API_URL = os.getenv("API_URL", "http://localhost:8000/ask")
+API_URL = os.getenv("API_URL", "http://fastapi:8000/ask")
 
 # 사이드바에 컨트롤 배치
 with st.sidebar:

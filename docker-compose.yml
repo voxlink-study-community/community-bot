@@ -1,5 +1,5 @@
 services:
-  api:
+  fastapi:
     build: .
     command: uvicorn api_server:app --host 0.0.0.0 --port 8000
     ports:
@@ -9,6 +9,7 @@ services:
       - URL=${URL}
     networks:
       - app_network
+    container_name: fastapi
 
   streamlit:
     build: .
@@ -16,9 +17,9 @@ services:
     ports:
       - "8501:8501"
     environment:
-      - API_URL=http://api:8000/ask
+      - API_URL=http://fastapi:8000/ask
     depends_on:
-      - api
+      - fastapi
     networks:
       - app_network
 
