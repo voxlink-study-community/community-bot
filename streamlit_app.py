@@ -5,7 +5,7 @@ import os
 # 환경변수 설정
 API_URL = os.getenv("API_URL", "http://fastapi:8000/ask")
 
-st.title("Discord 커뮤니티 챗봇")
+st.title("Discord 커뮤니티 test 챗봇")
 st.markdown("---")
 
 # 세션 초기화 (최소화)
