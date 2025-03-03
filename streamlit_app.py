@@ -1,7 +1,9 @@
 import streamlit as st
 import requests
 import os
+from dotenv import load_dotenv
 
+load_dotenv(".env.prod")
 # 환경변수 설정
 API_URL = os.getenv("API_URL", "http://fastapi:8000/ask")
 

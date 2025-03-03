@@ -3,21 +3,19 @@ services:
     build: .
     command: uvicorn api_server:app --host 0.0.0.0 --port 8000
     ports:
-      - "8000:8000"
-    environment:
-      - GROQ_API_KEY=${GROQ_API_KEY}
-      - URL=${URL}
+      - "18000:8000"
+    env_file:
+      - .env.prod  # .env.prod 파일 명시적 참조
     networks:
       - app_network
-    container_name: fastapi
 
   streamlit:
     build: .
     command: streamlit run streamlit_app.py
     ports:
-      - "8501:8501"
-    environment:
-      - API_URL=http://fastapi:8000/ask
+      - "18501:8501"
+    env_file:
+      - .env.prod  # .env.prod 파일 명시적 참조
     depends_on:
       - fastapi
     networks:
