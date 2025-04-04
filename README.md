@@ -4,7 +4,9 @@
 FastAPI 기반의 커뮤니티 관리 자동화 봇 프로젝트입니다.  
 사용자 등록, API 서버 실행, Streamlit 연동 등을 포함하며, Docker와 Docker Compose로 구성됩니다.
 
+
 ## 설치 방법
+
 
 ### 기본 설치
 ```bash
@@ -13,10 +15,12 @@ cd community-bot
 pip install -r requirements.txt
 ```
 
+
 ### Docker 사용 시
 ```bash
 docker-compose up --build
 ```
+
 
 ## 실행 방법
 
@@ -31,7 +35,6 @@ streamlit run streamlit_app.py
 ```
 
 ---
-
 ## 학습 정리
 
 ### 환경변수 사용 이유  
@@ -62,6 +65,7 @@ load_dotenv()
 database_url = os.getenv("DATABASE_URL")
 ```
 
+
 ### Uvicorn 아키텍처  
 - ASGI 서버로, asyncio 기반 비동기 I/O 처리
 - 고성능 이벤트 루프(`uvloop`)와 `httptools`를 사용해 빠른 요청/응답
@@ -88,6 +92,7 @@ FastAPI 애플리케이션
     ↓
 응답 반환
 ```
+
 
 ### HTTPException  
 - FastAPI에서 에러 발생 시 `HTTPException(status_code=..., detail=...)`로 예외 처리
@@ -125,6 +130,8 @@ def get_user(user_id: int):
 - status_code: 상태 코드 (예: 404, 400, 401 등)
 - detail: 에러 메시지 내용
 - headers: 응답 헤더 추가 설정 (선택)
+
+
 
 ### FastAPI CRUD 메서드  
 - **Create**: `@app.post("/items")`로 데이터 생성  
